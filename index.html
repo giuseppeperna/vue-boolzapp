@@ -50,13 +50,13 @@
             <div class="search-icon">
               <i class="fas fa-search icon-colour-light"></i>
             </div>
-            <input type="text" class="font-w-600" name="" value="" placeholder="Cerca o inizia un nuova chat">
+            <input type="text" class="font-w-600" v-model="search" placeholder="Cerca o inizia un nuova chat">
           </div>
 
           <!-- List of chats -->
           <div class="contacts-list border-right">
             <ul>
-              <li v-for="(element, index) in contacts" class="container-flex flex-row center-items">
+              <li v-for="(element, index) in filterContacts" class="container-flex flex-row center-items">
                 <a href=""><img v-bind:src="element.avatar" alt=""></a><span class="font-w-600 black-text">{{element.name}}</span>
               </li>
             </ul>

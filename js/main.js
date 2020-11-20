@@ -9,6 +9,7 @@ Milestone 1 = Creazione layout Html & CSS. Basi per lo sviluppo con Vue.
 const boolzApp = new Vue({
   el:'#boolzApp',
   data: {
+    search:"",
     mainUser: { // Main user infos
         name:"Nome Utente",
         avatar:"img/avatar_io.jpg",
@@ -36,4 +37,11 @@ const boolzApp = new Vue({
       }
     ]
   },
+  computed: { // Search chat filter
+    filterContacts() {
+      return this.contacts.filter(contact => {
+        return contact.name.toLocaleLowerCase().includes(this.search.toLowerCase())
+      })
+    }
+  }
 });
