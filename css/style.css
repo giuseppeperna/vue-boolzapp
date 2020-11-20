@@ -83,14 +83,6 @@ body {
   font-weight: 700;
 }
 
-.font-w-800 {
-  font-weight: 800;
-}
-
-.decoration-none {
-  text-decoration: none;
-}
-
 /* COMMON */
 
 .border-right {
@@ -115,7 +107,6 @@ body {
   height: 90vh;
   width: 80%;
   min-width: 1000px;
-  overflow: auto;
   z-index: 1;
 }
 
