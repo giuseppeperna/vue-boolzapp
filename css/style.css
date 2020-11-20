@@ -188,7 +188,6 @@ body {
   padding: 0 20px;
   font-size: 0.9rem;
   color: lightgrey;
-  font-weight: 600;
 }
 
 .search-icon {
@@ -211,6 +210,7 @@ body {
   background-color: #ffffff;
   flex-basis: calc(100% - 210px);
   min-height: 100px;
+  overflow-y: auto;
 }
 
 .user-info {
@@ -264,4 +264,24 @@ body {
 .contact-options i, .user-options i {
   margin: 0 8px;
   font-size: 1.3rem
+}
+
+.contacts-list img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.contacts-list span {
+  font-size: 1.1rem;
+  margin: 0 0 40px 25px;
+}
+
+.contacts-list li {
+  height: 85px;
+  padding: 20px;
+  border-bottom: 2px solid #fafafa;
+}
+.contacts-list li:last-child {
+  border-bottom: none;
 }

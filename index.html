@@ -44,6 +44,9 @@
           </div>
           <div class="contacts-list border-right">
             <ul>
+              <li v-for="(element, index) in contacts" class="container-flex flex-row center-items">
+                <a href=""><img v-bind:src="element.avatar" alt=""></a><span class="font-w-600">{{element.name}}</span>
+              </li>
             </ul>
           </div>
         </nav>
@@ -61,10 +64,8 @@
               <a href="#"><i class="fas fa-paperclip icon-colour-light"></i></a>
               <a href="#"><i class="fas fa-ellipsis-v icon-colour-light"></i></a>
             </div>
-
           </div>
           <div class="messages-field">
-
           </div>
           <div class="input-message input-bar-colour container-flex flex-row justify-space-evenly center-items">
             <a href="#"><i class="far fa-smile icon-colour"></i></a>

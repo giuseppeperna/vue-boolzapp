@@ -1,13 +1,3 @@
-const usersAvatar = [
-  "img/avatar_1.jpg",
-  "img/avatar_2.jpg",
-  "img/avatar_3.jpg",
-  "img/avatar_4.jpg",
-  "img/avatar_5.jpg",
-  "img/avatar_6.jpg",
-  "img/avatar_7.jpg",
-  "img/avatar_8.jpg",
-];
 
 const boolzApp = new Vue({
   el:'#boolzApp',
@@ -21,6 +11,21 @@ const boolzApp = new Vue({
         name:"Michele",
         avatar: "img/avatar_1.jpg",
         lastAccess:"10:00 am",
+      },
+      {
+        name:"Fabio",
+        avatar: "img/avatar_2.jpg",
+        lastAccess:"",
+      },
+      {
+        name:"Samuele",
+        avatar: "img/avatar_3.jpg",
+        lastAccess:"",
+      },
+      {
+        name:"Luisa",
+        avatar: "img/avatar_6.jpg",
+        lastAccess:"",
       }
     ]
   },
