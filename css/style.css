@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;;
+}
+
+body {
+  font-size: 15px;
+}
+
+/* COMMON */
+
+.container-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.center-items {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-space-around {
+  justify-content: space-around;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+
+.center-text {
+  text-align: center;
+}
+
+/* COLOURS */
+
+.black-text {
+  color:black;
+}
+
+.grey-text {
+  color:#a4aab0;
+}
+
+.accent-colour {
+ color:
+}
+
+/* TYPOGRAPHY */
+
+.font-w-600 {
+  font-weight: 600;
+}
+
+.font-w-700 {
+  font-weight: 700;
+}
+
+.font-w-800 {
+  font-weight: 800;
+}
+
+.decoration-none {
+  text-decoration: none;
+}
+
+/* BACKGROUND */
+
+.root-container {
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(to bottom, #009688 15vh,
+    #dadbd3 15vh,
+    #d2dbdc 100%);
+}
+
+/* APP SECTION */
+
+#boolzApp {
+  position: fixed;
+  left:50%;
+  top:50%;
+  transform: translate(-50%, -50%);
+  height: 85vh;
+  width: 85%;
+  min-width: 1000px;
+  overflow: auto;
+  background-color: #fff;
+  z-index: 1;
+}
+
+#left-side {
+  width: 40%;
+  height: 100%;
+  background-color: chartreuse;
+  border: 1px solid black;
+  float:left;
+}
+
+#main-section {
+  width: 60%;
+  height: 100%;
+  /* background-color: orange; */
+  border: 1px solid black;
+  float: left;
+}
+
+.top-bar, .input-message, .user-status {
+  width: 100%;
+  height: 80px;
+  background-color: grey;
+}
+
+.messages-field {
+  height: calc(100% - 160px);
+  background-color: blue;
+}
+
+.notification-status {
+  height: 90px;
+  background-color: aquamarine;
+}
+
+.search-contacts {
+  width:100%;
+  height: 60px;
+  background-color: red;
+}
+
+.contacts-list {
+  background-color: white;
+  flex-basis: calc(100% - 230px);
+  min-height: 100px;
+}
