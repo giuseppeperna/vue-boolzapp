@@ -123,12 +123,14 @@ body {
   width: 35%;
   height: 100%;
   float:left;
+  overflow: hidden;
 }
 
 #main-section {
   width: 65%;
   height: 100%;
   float: left;
+  overflow: hidden;
 }
 
 .top-bar, .input-message, .user-status {
@@ -209,7 +211,6 @@ body {
 .contacts-list {
   background-color: #ffffff;
   flex-basis: calc(100% - 210px);
-  min-height: 100px;
   overflow-y: auto;
 }
 
