@@ -14,7 +14,7 @@ const boolzApp = new Vue({
   data: {
     mainUser: {
         name:"Nome Utente",
-        avatar:"avatar_io.jpg",
+        avatar:"img/avatar_io.jpg",
       },
     contacts: [
       {

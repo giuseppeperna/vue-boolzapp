@@ -159,6 +159,17 @@ body {
   min-height: 100px;
 }
 
+.user-info {
+  margin-left: 10px;
+}
+
+.user-info img {
+  width:50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
 .input-message > input {
   width: 80%;
   height: 50px;
@@ -192,11 +203,11 @@ body {
   font-size: 0.7rem;
 }
 
-.contact-options {
+.contact-options, .user-options {
   margin-right: 20px;
 }
 
-.contact-options i {
+.contact-options i, .user-options i {
   margin: 0 8px;
   font-size: 1.3rem
 }

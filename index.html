@@ -16,7 +16,16 @@
     <div class="root-container">
       <div id="boolzApp">
         <nav id="left-side" class="container-flex flex-column">
-          <div class="user-status grey-bars border-right">
+          <div class="user-status grey-bars border-right container-flex flex-row center-items justify-space-between">
+            <div class="user-info container-flex flex-row center-items">
+              <img v-bind:src="mainUser.avatar" alt="">
+              <h4>{{mainUser.name}}</h4>
+            </div>
+            <div class="user-options">
+              <a href="#"><i class="fas fa-circle-notch icon-colour-light"></i></a>
+              <a href="#"><i class="fas fa-comment-alt icon-colour-light"></i></a>
+              <a href="#"><i class="fas fa-ellipsis-v icon-colour-light"></i></a>
+            </div>
           </div>
           <div class="notification-status">
 
