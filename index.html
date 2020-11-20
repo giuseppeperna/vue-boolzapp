@@ -30,19 +30,28 @@
           </div>
         </nav>
         <main id="main-section">
-          <div class="top-bar grey-bars container-flex flex-row center-items">
-            <div class="contact-avatar">
-              <img src="img/avatar_1.jpg" alt="">
+          <div class="top-bar grey-bars container-flex flex-row center-items justify-space-between">
+            <div class="contact-avatar container-flex flex-row center-items">
+              <a href=""><img v-bind:src="contacts[0].avatar" alt="avatar"></a>
+              <div class="contact-status-info">
+                <h4>{{contacts[0].name}}</h4>
+                <p class="grey-text font-w-600">Ultimo accesso oggi alle {{contacts[0].lastAccess}}</p>
+              </div>
+            </div>
+            <div class="contact-options">
+              <a href="#"><i class="fas fa-search icon-colour-light"></i></a>
+              <a href="#"><i class="fas fa-paperclip icon-colour-light"></i></a>
+              <a href="#"><i class="fas fa-ellipsis-v icon-colour-light"></i></a>
             </div>
 
           </div>
           <div class="messages-field">
 
           </div>
-          <div class="input-message input-bar-color container-flex flex-row justify-space-evenly center-items">
-            <a href="#"><i class="far fa-smile"></i></a>
+          <div class="input-message input-bar-colour container-flex flex-row justify-space-evenly center-items">
+            <a href="#"><i class="far fa-smile icon-colour"></i></a>
             <input type="text" name="" value="" placeholder="Scrivi un messsaggio">
-            <a href=""><i class="fas fa-microphone"></i></a>
+            <a href=""><i class="fas fa-microphone icon-colour"></i></a>
           </div>
         </main>
       </div>

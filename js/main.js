@@ -18,9 +18,9 @@ const boolzApp = new Vue({
       },
     contacts: [
       {
-        name:"Nome Utente",
+        name:"Michele",
         avatar: "img/avatar_1.jpg",
-        lastAccess:"",
+        lastAccess:"10:00 am",
       }
     ]
   },
