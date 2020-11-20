@@ -1,12 +1,19 @@
+/**
+@file BoolzApp: una web app di messaggistica clone di WhatsApp.
+Milestone 1 = Creazione layout Html & CSS. Basi per lo sviluppo con Vue.
 
+@author Giuseppe Perna <giuseppeperna.cg@gmail.com>
+*/
+
+// Init Vue Object
 const boolzApp = new Vue({
   el:'#boolzApp',
   data: {
-    mainUser: {
+    mainUser: { // Main user infos
         name:"Nome Utente",
         avatar:"img/avatar_io.jpg",
       },
-    contacts: [
+    contacts: [ // Contacts infos
       {
         name:"Michele",
         avatar: "img/avatar_1.jpg",
@@ -29,7 +36,4 @@ const boolzApp = new Vue({
       }
     ]
   },
-  methods: {
-
-  }
-})
+});
