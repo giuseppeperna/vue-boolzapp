@@ -6,9 +6,14 @@
 
 body {
   font-size: 15px;
+  font-family: 'Lato', sans-serif;
 }
 
 /* COMMON */
+
+.border-right {
+  border-right: 1px solid lightgrey;
+}
 
 .container-flex {
   display: flex;
@@ -34,6 +39,10 @@ body {
   justify-content: space-around;
 }
 
+.justify-space-evenly {
+  justify-content: space-evenly;
+}
+
 .justify-space-between {
   justify-content: space-between;
 }
@@ -52,8 +61,12 @@ body {
   color:#a4aab0;
 }
 
-.accent-colour {
- color:
+.input-bar-color {
+ background-color: #f3eeea;
+}
+
+.grey-bars {
+  background-color: #eaeaea;
 }
 
 /* TYPOGRAPHY */
@@ -91,54 +104,69 @@ body {
   left:50%;
   top:50%;
   transform: translate(-50%, -50%);
-  height: 85vh;
-  width: 85%;
+  height: 90vh;
+  width: 80%;
   min-width: 1000px;
   overflow: auto;
-  background-color: #fff;
   z-index: 1;
 }
 
 #left-side {
-  width: 40%;
+  width: 35%;
   height: 100%;
-  background-color: chartreuse;
-  border: 1px solid black;
   float:left;
 }
 
 #main-section {
-  width: 60%;
+  width: 65%;
   height: 100%;
-  /* background-color: orange; */
-  border: 1px solid black;
   float: left;
 }
 
 .top-bar, .input-message, .user-status {
   width: 100%;
-  height: 80px;
-  background-color: grey;
+  height: 70px;
+
 }
 
 .messages-field {
-  height: calc(100% - 160px);
-  background-color: blue;
+  height: calc(100% - 140px);
+  background-image: url(../img/mine.jpg);
 }
 
 .notification-status {
   height: 90px;
-  background-color: aquamarine;
+  background-color: #8edafc;
 }
 
 .search-contacts {
   width:100%;
   height: 60px;
-  background-color: red;
+  background-color: #fafafa;
 }
 
 .contacts-list {
-  background-color: white;
-  flex-basis: calc(100% - 230px);
+  background-color: #ffffff;
+  flex-basis: calc(100% - 220px);
   min-height: 100px;
+}
+
+.input-message > input {
+  width: 80%;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  padding: 0 15px;
+  color: grey;
+}
+
+.input-message i {
+  font-size: 1.5rem;
+  color: #6c7689;
+}
+
+.contact-avatar img {
+  width:50px;
+  height: 50px;
+  border-radius: 50%;
 }
