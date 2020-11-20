@@ -141,20 +141,75 @@ body {
   background-image: url(../img/mine.jpg);
 }
 
+
 .notification-status {
-  height: 90px;
+  min-height: 90px;
   background-color: #8edafc;
+}
+
+.notification-status p {
+  font-size: 1.0rem;
+  margin-bottom: 5px;
+}
+
+.notification-status a {
+  color:#474747;
+  opacity: 0.8;
+}
+
+.notification-bell {
+  position: relative;
+  width:60px;
+  height: 60px;
+  background-color: #f2fbff;
+  border-radius: 50%;
+  margin: 0 10px 0 25px;
+}
+
+.notification-bell i {
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.4rem;
+  color: #8edafc;
 }
 
 .search-contacts {
   width:100%;
-  height: 60px;
+  min-height: 50px;
   background-color: #fafafa;
+}
+
+.search-contacts input {
+  width: 85%;
+  height: 35px;
+  border: none;
+  padding: 0 20px;
+  font-size: 0.9rem;
+  color: lightgrey;
+  font-weight: 600;
+}
+
+.search-icon {
+  height:35px;
+  width:10%;
+  background-color: #fff;
+  position: relative;
+}
+
+.search-icon i {
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.1rem;
+  padding-left: 10px;
 }
 
 .contacts-list {
   background-color: #ffffff;
-  flex-basis: calc(100% - 220px);
+  flex-basis: calc(100% - 210px);
   min-height: 100px;
 }
 
