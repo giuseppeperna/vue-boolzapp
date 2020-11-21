@@ -50,14 +50,14 @@
             <div class="search-icon">
               <i class="fas fa-search icon-colour-light"></i>
             </div>
-            <input type="text" class="font-w-600" v-model="search" placeholder="Cerca o inizia un nuova chat">
+            <input type="text" class="font-w-600 grey-text" v-model="search" placeholder="Cerca o inizia un nuova chat">
           </div>
 
           <!-- List of chats -->
           <div class="contacts-list border-right">
             <ul>
-              <li v-for="(element, index) in filterContacts" class="container-flex flex-row center-items">
-                <a href=""><img v-bind:src="element.avatar" alt=""></a><span class="font-w-600 black-text">{{element.name}}</span>
+              <li v-for="(element, index) in filterContacts" :key="'chat-' + index" v-bind:class="{ 'contact-selected': activeChat == element.chatId}"  @click="(activate(element))" class="container-flex flex-row center-items">
+                <a href="#"><img v-bind:src="element.avatar" alt=""></a><span class="font-w-600 black-text">{{element.name}}</span>
               </li>
             </ul>
           </div>
@@ -89,8 +89,12 @@
           <!-- Input text field -->
           <div class="input-message input-bar-colour container-flex flex-row justify-space-evenly center-items">
             <a href="#"><i class="far fa-smile icon-colour"></i></a>
-            <input type="text" name="" value="" placeholder="Scrivi un messsaggio">
-            <a href=""><i class="fas fa-microphone icon-colour"></i></a>
+            <input v-model="textInput" type="text" name="" value="" placeholder="Scrivi un messsaggio">
+            <div class="send-icons">
+              <a v-if="textInput !== ''" href="#"><i class="fas fa-paper-plane icon-colour"></i></a>
+              <a v-else href="#"><i class="fas fa-microphone icon-colour"></i></a>
+            </div>
+
           </div>
 
         </main>

@@ -179,7 +179,6 @@ body {
   border: none;
   padding: 0 20px;
   font-size: 0.9rem;
-  color: lightgrey;
 }
 
 .search-icon {
@@ -199,6 +198,10 @@ body {
 }
 
 /* Chat list */
+.contact-selected {
+  background-color: #009688;
+}
+
 .contacts-list {
   background-color: #ffffff;
   flex-basis: calc(100% - 210px);
@@ -220,6 +223,7 @@ body {
   height: 85px;
   padding: 20px;
   border-bottom: 2px solid #fafafa;
+  cursor: pointer;
 }
 .contacts-list li:last-child {
   border-bottom: none;
@@ -288,4 +292,16 @@ body {
 
 .input-message i {
   font-size: 1.5rem;
+}
+
+.send-icons {
+  position: relative;
+  width:3%;
+}
+
+.send-icons i {
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
 }
