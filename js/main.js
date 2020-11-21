@@ -46,7 +46,7 @@ const boolzApp = new Vue({
             text:"Perfetto! A dopo.",
             userId: this.chatId,
           },
-        ]
+        ],
       },
       {
         name:"Fabio",
@@ -54,6 +54,20 @@ const boolzApp = new Vue({
         lastAccess:date.toLocaleTimeString([],{timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit'}),
         chatId:2,
         isActive: false,
+        chatMessages: [
+          {
+            text:"La cena di ieri è stata fantastica!",
+            userId: 0,
+          },
+          {
+            text:"Vogliamo parlare del vino? TOP!",
+            userId: this.chatId,
+          },
+          {
+            text:"Il vino era davvero ottimo, ma il dessert rimane insuperabile.",
+            userId: 0,
+          },
+        ],
       },
       {
         name:"Samuele",
@@ -61,6 +75,24 @@ const boolzApp = new Vue({
         lastAccess:date.toLocaleTimeString([],{timeZone: 'Europe/Athens', hour: '2-digit', minute: '2-digit'}),
         chatId:3,
         isActive: false,
+        chatMessages: [
+          {
+            text:"Pronto per la partita?",
+            userId: this.chatId,
+          },
+          {
+            text:"Sono carico a mille!",
+            userId: 0,
+          },
+          {
+            text:"Dai che stasera vinciamo!",
+            userId: this.chatId,
+          },
+          {
+            text:"Me lo sento.",
+            userId: this.chatId,
+          },
+        ],
       },
       {
         name:"Luisa",
@@ -68,6 +100,24 @@ const boolzApp = new Vue({
         lastAccess:date.toLocaleTimeString([],{timeZone: 'Asia/Shanghai', hour: '2-digit', minute: '2-digit'}),
         chatId:4,
         isActive: false,
+        chatMessages: [
+          {
+            text:"Ciao Luisa! Com'è andato l'esame?",
+            userId: 0,
+          },
+          {
+            text:"Ciao! Molto bene, grazie: 30 e lode!",
+            userId: this.chatId,
+          },
+          {
+            text:"Grande! Congratulazioni.",
+            userId: 0,
+          },
+          {
+            text:"Grazie :)",
+            userId: this.chatId,
+          },
+        ],
       }
     ]
   },

@@ -59,7 +59,9 @@
           <div class="contacts-list border-right">
             <ul>
               <li v-for="(element, index) in filterContacts" :key="'chat-' + index" v-bind:class="{ 'contact-selected': activeChat == element.chatId}"  @click="(activate(element))" class="container-flex flex-row center-items">
-                <a href="#"><img v-bind:src="element.avatar" alt=""></a><span class="font-w-600 black-text">{{element.name}}</span>
+                <a href="#"><img v-bind:src="element.avatar" alt=""></a><span class="font-w-600 black-text contact-name">{{element.name}}</span>
+                <span v-if="element.chatMessages[index].text.length > 30" class="last-message">{{element.chatMessages.slice(-1)[0].text.substr(0,36)}}...</span>
+                <span v-else class="last-message">{{element.chatMessages.slice(-1)[0].text.substr(0,36)}}</span>
               </li>
             </ul>
           </div>
