@@ -62,6 +62,7 @@
                 <a href="#"><img v-bind:src="element.avatar" alt=""></a><span class="font-w-600 black-text contact-name">{{element.name}}</span>
                 <span v-if="element.chatMessages[index].text.length > 30" class="last-message">{{element.chatMessages.slice(-1)[0].text.substr(0,36)}}...</span>
                 <span v-else class="last-message">{{element.chatMessages.slice(-1)[0].text.substr(0,36)}}</span>
+                <span class="last-message-time font-w-600">{{element.chatMessages[index].time}}</span>
               </li>
             </ul>
           </div>
@@ -98,9 +99,12 @@
               <div v-for="(element, index) in contacts[chatId - 1].chatMessages" v-bind:class="{'flex-row-reverse': contacts[chatId - 1].chatMessages[index].userId == 0}" class="container-flex flex-row center-items">
                 <div class="contact-messages chat-contact-color">
                   <p v-if="contacts[chatId - 1].chatMessages[index].userId == this.chatId">{{contacts[chatId - 1].chatMessages[index].text}}</p>
+                  <span v-if="contacts[chatId - 1].chatMessages[index].userId == this.chatId">{{contacts[chatId - 1].chatMessages[index].time}}</span>
                 </div>
                 <div class="user-messages chat-user-color">
                   <p v-if="contacts[chatId - 1].chatMessages[index].userId == 0">{{contacts[chatId - 1].chatMessages[index].text}}</p>
+                  <i v-if="contacts[chatId - 1].chatMessages[index].userId == 0" class="fas fa-check-double"></i>
+                  <span v-if="contacts[chatId - 1].chatMessages[index].userId == 0">{{contacts[chatId - 1].chatMessages[index].time}}</span>
                 </div>
               </div>
             </template>

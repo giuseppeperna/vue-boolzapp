@@ -14,7 +14,7 @@ const boolzApp = new Vue({
     search:"",
     notifications: {
       icon:"fa-bell-slash",
-      message: "Attiva notifiche desktop"
+      message: "Attiva notifiche desktop",
     } ,
     activeChat: null,
     mainUser: { // Main user infos
@@ -33,18 +33,22 @@ const boolzApp = new Vue({
           {
             text:"A che ore ci incontriamo?",
             userId: this.chatId,
+            time:"09:26",
           },
           {
             text:"Ti va bene alle 12:00 in piazza?",
             userId: 0,
+            time:"09:50",
           },
           {
             text:"Se faccio tardi, ti avviso.",
             userId: 0,
+            time:"10:00",
           },
           {
             text:"Perfetto! A dopo.",
             userId: this.chatId,
+            time:"10:15",
           },
         ],
       },
@@ -58,14 +62,17 @@ const boolzApp = new Vue({
           {
             text:"La cena di ieri è stata fantastica!",
             userId: 0,
+            time:"15:18",
           },
           {
             text:"Vogliamo parlare del vino? TOP!",
             userId: this.chatId,
+            time:"15:26",
           },
           {
             text:"Il vino era davvero ottimo, ma il dessert rimane insuperabile.",
             userId: 0,
+            time:"15:32",
           },
         ],
       },
@@ -79,18 +86,22 @@ const boolzApp = new Vue({
           {
             text:"Pronto per la partita?",
             userId: this.chatId,
+            time:"19:03",
           },
           {
             text:"Sono carico a mille!",
             userId: 0,
+            time:"19:07",
           },
           {
             text:"Dai che stasera vinciamo!",
             userId: this.chatId,
+            time:"19:11",
           },
           {
             text:"Me lo sento.",
             userId: this.chatId,
+            time:"19:12",
           },
         ],
       },
@@ -104,18 +115,22 @@ const boolzApp = new Vue({
           {
             text:"Ciao Luisa! Com'è andato l'esame?",
             userId: 0,
+            time:"11:26",
           },
           {
             text:"Ciao! Molto bene, grazie: 30 e lode!",
             userId: this.chatId,
+            time:"12:30",
           },
           {
             text:"Grande! Congratulazioni.",
             userId: 0,
+            time:"12:31",
           },
           {
             text:"Grazie :)",
             userId: this.chatId,
+            time:"12:35",
           },
         ],
       }

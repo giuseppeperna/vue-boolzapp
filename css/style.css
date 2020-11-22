@@ -213,9 +213,8 @@ body {
 
 /* Chat list */
 .contact-selected {
-  /* background-color: #009688; */
   background-color:#7ed6cd;
-  border-radius: 40px;
+  border-radius: 20px;
 }
 
 .contacts-list {
@@ -235,7 +234,6 @@ body {
   position:relative;
   bottom:20px;
   left:20px;
-  /* margin: 0 0 40px 25px; */
 }
 
 .last-message {
@@ -243,6 +241,15 @@ body {
   top:45px;
   left: 100px;
   text-align: left;
+}
+
+.last-message-time {
+  position:absolute;
+  top:15px;
+  right: 15px;
+  text-align: left;
+  font-size: 0.8rem;
+  /* font-weight: 600; */
 }
 
 .contacts-list li {
@@ -305,6 +312,7 @@ body {
   height: calc(100% - 140px);
   background-image: url(../img/mine.jpg);
   overflow-y: auto;
+  padding: 35px;
 }
 .welcome-window {
   width: 100%;
@@ -323,12 +331,32 @@ body {
 .contact-messages, .user-messages {
   max-width:500px;
   border-radius: 8px;
-  margin: 15px 0 20px 50px;
+  margin: 10px 0 10px 10px;
   box-shadow: 6px 6px 6px 0 rgba(0,0,0,0.1);
 }
 
 .contact-messages p, .user-messages p {
 padding: 10px;
+}
+
+.user-messages > i {
+  position:relative;
+  float: right;
+  margin:0 5px 5px 0;
+  color:#009688;
+  font-size:0.8rem;
+}
+
+.user-messages > span, .contact-messages > span {
+  position: relative;
+  float: right;
+  font-size: 0.7rem;
+  margin-right: 5px;
+  font-weight: 600;
+}
+
+.contact-messages > span {
+  margin: 0 8px 5px 0;
 }
 
 /* Input text bar */
