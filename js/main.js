@@ -1,22 +1,31 @@
 /**
 @file BoolzApp: una web app di messaggistica clone di WhatsApp.
 Milestone 1 = Creazione layout Html & CSS. Basi per lo sviluppo con Vue.
+Features implementate:
+- Selezionare una chat tra quelle disponibili.
+- Filter sulla ricerca delle chat presenti.
+- Possibilità di inviare un messaggio in ogni chat e ricevere una risposta random in automatico.
+- Sostituzione dinamica dell'icona di invio messaggio solo quando c'è del testo nel campo input.
+- Toggle On/Off dell'icona e della descrizione delle notifiche desktop.
+- Trasformazione dinamica dell'ora di ultimo accesso alla chat e dell'ora dei messaggi inviati.
+- Nella lista delle chat disponibili viene mostrata l'anteprima dell'ultimo messaggio e l'orario di invio/ricezione.
 
 @author Giuseppe Perna <giuseppeperna.cg@gmail.com>
 */
+// Init new Object Date
 let date = new Date();
 
 // Init Vue Object
 const boolzApp = new Vue({
   el:'#boolzApp',
   data: {
-    textInput:"",
-    search:"",
-    notifications: {
+    textInput:"", // Input for sending a message
+    search:"", // Chat search bar input
+    notifications: { // Notification status On/Off
       icon:"fa-bell-slash",
       message: "Attiva notifiche desktop",
     } ,
-    activeChat: null,
+    activeChat: null, // Current active chat
     mainUser: { // Main user infos
         name:"Nome Utente",
         avatar:"img/avatar_io.jpg",
@@ -51,6 +60,12 @@ const boolzApp = new Vue({
             time:"10:15",
           },
         ],
+        randomAnswers: [
+          "Per me va bene.",
+          "Sei sicuro?",
+          "Ti aspetto.",
+          "Porta da bere, mi raccomando!"
+        ],
       },
       {
         name:"Fabio",
@@ -74,6 +89,12 @@ const boolzApp = new Vue({
             userId: 0,
             time:"15:32",
           },
+        ],
+        randomAnswers: [
+          "Dobbiamo replicare il prima possibile.",
+          "Anche il conto era onesto.",
+          "Conosci per caso il numero di telefono? Vorrei portarci una persona domani sera.",
+          "Quando vuoi!"
         ],
       },
       {
@@ -104,6 +125,12 @@ const boolzApp = new Vue({
             time:"19:12",
           },
         ],
+        randomAnswers: [
+          "Vinciamo 3 a 0.",
+          "Dobbiamo difendere meglio della partita scorsa.",
+          "Abbiamo pareggiato solo grazie al portiere.",
+          "Ci vediamo al campo."
+        ],
       },
       {
         name:"Luisa",
@@ -133,11 +160,17 @@ const boolzApp = new Vue({
             time:"12:35",
           },
         ],
+        randomAnswers: [
+          "Sei stato molto gentile a contattarmi per sapere dell'esame.",
+          "Se ti va, la prossima settimana sono libera per un caffè.",
+          "Hai già il mio numero.",
+          "A presto :)"
+        ],
       }
     ]
   },
-  methods: { // Activate selected chat
-    activate (element) {
+  methods: {
+    activate(element) { // Activate selected chat
       if ((element.chatId == this.activeChat) && (element.isActive === true)) {
         this.activeChat = null;
         element.isActive = false;
@@ -146,7 +179,7 @@ const boolzApp = new Vue({
         element.isActive = true;
       }
     },
-    notificationsToggle () {
+    notificationsToggle() { // Toggle notifications On/Off
       if (this.notifications.icon === "fa-bell-slash") {
         this.notifications.icon = "fa-bell";
         this.notifications.message = "Disattiva notifiche desktop";
@@ -154,9 +187,27 @@ const boolzApp = new Vue({
         this.notifications.icon = "fa-bell-slash";
         this.notifications.message = "Attiva notifiche desktop";
       }
-    }
+    },
+    sendMessage() { // Send new message in chat
+      while (this.textInput !== "") {
+        this.filterContacts[this.chatId - 1].chatMessages.push( {
+            text: this.textInput,
+            userId: 0,
+            time: date.toLocaleTimeString([],{hour: '2-digit', minute: '2-digit'}),
+        })
+        setTimeout(() => {this.automaticAnswer()},3000); // Send a random answer after 3 seconds;
+        this.textInput = "" // Reset message input value
+      }
+    },
+    automaticAnswer() { // Generate a random answer
+      this.contacts[this.chatId - 1].chatMessages.push( {
+          text: this.filterContacts[this.chatId - 1].randomAnswers[Math.floor(Math.random() * this.filterContacts[this.chatId - 1].randomAnswers.length)],
+          userId: this.chatId,
+          time: date.toLocaleTimeString([],{hour: '2-digit', minute: '2-digit'}),
+      })
+      this.contacts[this.chatId - 1].lastAccess = date.toLocaleTimeString([],{hour: '2-digit', minute: '2-digit'});
+    },
   },
-
   computed: { // Search chat filter
     filterContacts() {
       return this.contacts.filter(contact => {

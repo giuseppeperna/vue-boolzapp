@@ -25,10 +25,12 @@
 
           <!-- User status -->
           <div class="user-status grey-bars border-right container-flex flex-row center-items justify-space-between">
+            <!-- Avatar & name -->
             <div class="user-info container-flex flex-row center-items">
               <a href="#"><img v-bind:src="mainUser.avatar" alt=""></a>
               <h4 class="black-text">{{mainUser.name}}</h4>
             </div>
+            <!-- User options -->
             <div class="user-options">
               <a href="#"><i class="fas fa-circle-notch icon-colour-light"></i></a>
               <a href="#"><i class="fas fa-comment-alt icon-colour-light"></i></a>
@@ -59,10 +61,12 @@
           <div class="contacts-list border-right">
             <ul>
               <li v-for="(element, index) in filterContacts" :key="'chat-' + index" v-bind:class="{ 'contact-selected': activeChat == element.chatId}"  @click="(activate(element))" class="container-flex flex-row center-items">
+                <!-- Avatar & name -->
                 <a href="#"><img v-bind:src="element.avatar" alt=""></a><span class="font-w-600 black-text contact-name">{{element.name}}</span>
-                <span v-if="element.chatMessages[index].text.length > 30" class="last-message">{{element.chatMessages.slice(-1)[0].text.substr(0,36)}}...</span>
-                <span v-else class="last-message">{{element.chatMessages.slice(-1)[0].text.substr(0,36)}}</span>
-                <span class="last-message-time font-w-600">{{element.chatMessages[index].time}}</span>
+                <!-- Last message -->
+                <span class="last-message text-ellipsis">{{element.chatMessages.slice(-1)[0].text}}</span>
+                <!-- Last message time -->
+                <span class="last-message-time font-w-600">{{element.chatMessages.slice(-1)[0].time}}</span>
               </li>
             </ul>
           </div>
@@ -73,15 +77,18 @@
 
           <!-- Top bar - Contact information -->
           <div class="top-bar grey-bars container-flex flex-row center-items justify-space-between">
+            <!-- Avatar or Logo -->
             <div class="contact-avatar container-flex flex-row center-items">
               <a href=""><img v-if="this.chatId = activeChat" v-bind:src="contacts[chatId - 1].avatar" alt="avatar"></a>
               <a href=""><img v-if="!activeChat" src="img/boolean-logo.png" alt="logo"></a>
+              <!-- Contact status infos -->
               <div class="contact-status-info">
                 <h4 v-if="this.chatId = activeChat" class="black-text">{{contacts[chatId - 1].name}}</h4>
                 <h4 v-if="!activeChat" class="black-text">BoolzApp</h4>
                 <p v-if="this.chatId = activeChat" class="grey-text font-w-600">Ultimo accesso oggi alle {{contacts[chatId - 1].lastAccess}}</p>
               </div>
             </div>
+            <!-- Contact options -->
             <div class="contact-options">
               <a v-if="activeChat" href="#"><i class="fas fa-search icon-colour-light"></i></a>
               <a v-if="activeChat" href="#"><i class="fas fa-paperclip icon-colour-light"></i></a>
@@ -91,18 +98,22 @@
 
           <!-- Chat window -->
           <div class="messages-field">
+            <!-- Welcome window -->
             <div v-if="!activeChat" class="welcome-window container-flex flex-column center-items justify-center">
               <img src="img/boolean-logo.png" alt="">
               <h4 class="black-text">Powered by Boolean Careers</h4>
             </div>
+            <!-- Chat messages -->
             <template v-if="this.chatId = activeChat">
-              <div v-for="(element, index) in contacts[chatId - 1].chatMessages" v-bind:class="{'flex-row-reverse': contacts[chatId - 1].chatMessages[index].userId == 0}" class="container-flex flex-row center-items">
+              <div v-for="(element, index) in contacts[chatId - 1].chatMessages" :key="'message-' + index" v-bind:class="{'flex-row-reverse': contacts[chatId - 1].chatMessages[index].userId == 0}" class="container-flex flex-row center-items">
+                <!-- Contact messages -->
                 <div class="contact-messages chat-contact-color">
-                  <p v-if="contacts[chatId - 1].chatMessages[index].userId == this.chatId">{{contacts[chatId - 1].chatMessages[index].text}}</p>
-                  <span v-if="contacts[chatId - 1].chatMessages[index].userId == this.chatId">{{contacts[chatId - 1].chatMessages[index].time}}</span>
+                  <p class="break-text" v-if="contacts[chatId - 1].chatMessages[index].userId !== 0" >{{contacts[chatId - 1].chatMessages[index].text}}</p>
+                  <span v-if="contacts[chatId - 1].chatMessages[index].userId !== 0">{{contacts[chatId - 1].chatMessages[index].time}}</span>
                 </div>
+                <!-- User messages -->
                 <div class="user-messages chat-user-color">
-                  <p v-if="contacts[chatId - 1].chatMessages[index].userId == 0">{{contacts[chatId - 1].chatMessages[index].text}}</p>
+                  <p class="break-text" v-if="contacts[chatId - 1].chatMessages[index].userId == 0">{{contacts[chatId - 1].chatMessages[index].text}}</p>
                   <i v-if="contacts[chatId - 1].chatMessages[index].userId == 0" class="fas fa-check-double"></i>
                   <span v-if="contacts[chatId - 1].chatMessages[index].userId == 0">{{contacts[chatId - 1].chatMessages[index].time}}</span>
                 </div>
@@ -113,13 +124,15 @@
 
           <!-- Input text field -->
           <div class="input-message input-bar-colour container-flex flex-row justify-space-evenly center-items">
+            <!-- Emoji -->
             <a v-if="activeChat" href="#"><i class="far fa-smile icon-colour"></i></a>
-            <input v-if="activeChat" v-model="textInput" type="text" name="" value="" placeholder="Scrivi un messsaggio">
+            <!-- Text input field -->
+            <input v-if="activeChat" v-model="textInput" @keypress.enter="sendMessage()" type="text" name="" value="" placeholder="Scrivi un messsaggio">
+            <!-- Send message button -->
             <div v-if="activeChat" class="send-icons">
-              <a v-if="textInput !== ''" href="#"><i class="fas fa-paper-plane icon-colour"></i></a>
+              <a @click="sendMessage()" v-if="textInput !== ''" href="#"><i class="fas fa-paper-plane icon-colour"></i></a>
               <a v-else href="#"><i class="fas fa-microphone icon-colour"></i></a>
             </div>
-
           </div>
 
         </main>

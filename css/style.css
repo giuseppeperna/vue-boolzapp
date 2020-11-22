@@ -95,6 +95,18 @@ body {
   font-weight: 700;
 }
 
+.text-ellipsis {
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.break-text {
+  width: 200px,auto;
+  word-wrap: break-word;
+}
+
 /* COMMON */
 
 .border-right {
@@ -249,7 +261,6 @@ body {
   right: 15px;
   text-align: left;
   font-size: 0.8rem;
-  /* font-weight: 600; */
 }
 
 .contacts-list li {
@@ -351,7 +362,7 @@ padding: 10px;
   position: relative;
   float: right;
   font-size: 0.7rem;
-  margin-right: 5px;
+  margin: 0 5px;
   font-weight: 600;
 }
 
