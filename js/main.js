@@ -175,7 +175,7 @@ const boolzApp = new Vue({
         this.activeChat = null;
         element.isActive = false;
       } else {
-        this.activeChat = element.chatId
+        this.activeChat = element.chatId;
         element.isActive = true;
       }
     },
@@ -196,7 +196,7 @@ const boolzApp = new Vue({
             time: date.toLocaleTimeString([],{hour: '2-digit', minute: '2-digit'}),
         })
         setTimeout(() => {this.automaticAnswer()},3000); // Send a random answer after 3 seconds;
-        this.textInput = "" // Reset message input value
+        this.textInput = ""; // Reset message input value
       }
     },
     automaticAnswer() { // Generate a random answer
@@ -211,7 +211,7 @@ const boolzApp = new Vue({
   computed: { // Search chat filter
     filterContacts() {
       return this.contacts.filter(contact => {
-        return contact.name.toLocaleLowerCase().includes(this.search.toLowerCase())
+        return contact.name.toLocaleLowerCase().includes(this.search.toLowerCase());
       })
     },
   }
