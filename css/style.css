@@ -103,7 +103,7 @@ body {
 }
 
 .break-text {
-  width: 200px,auto;
+  width: 200px, auto;
   word-wrap: break-word;
 }
 
@@ -323,7 +323,7 @@ body {
   height: calc(100% - 140px);
   background-image: url(../img/mine.jpg);
   overflow-y: auto;
-  padding: 35px;
+  padding: 35px 70px;
 }
 .welcome-window {
   width: 100%;
@@ -344,10 +344,13 @@ body {
   border-radius: 8px;
   margin: 10px 0 10px 10px;
   box-shadow: 6px 6px 6px 0 rgba(0,0,0,0.1);
+  cursor: pointer;
+  position: relative;
 }
 
 .contact-messages p, .user-messages p {
 padding: 10px;
+margin-top: 5px;
 }
 
 .user-messages > i {
@@ -369,6 +372,43 @@ padding: 10px;
 
 .contact-messages > span {
   margin: 0 8px 5px 8px;
+}
+
+.dropdown-btn {
+  position: relative;
+  float: right;
+  font-size: 0.7rem;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+}
+
+#chevron-contact, #chevron-user {
+  visibility: hidden;
+}
+
+#contact-messages:hover > #chevron-contact {
+  visibility: visible;
+}
+
+#user-messages:hover > #chevron-user {
+  visibility: visible;
+}
+
+.dropdown-message {
+  position: absolute;
+  min-width: 171px;
+  z-index: 1;
+  top:60px;
+  left:50%;
+  transform: translate(-50%, -50%);
+  background-color: lightgrey;
+  border-radius: 10px;
+  opacity: 0.9;
+}
+
+.dropdown-message  i {
+  margin-right: 10px;
 }
 
 /* Input text bar */

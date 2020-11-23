@@ -107,17 +107,32 @@
             <template v-if="this.chatId = activeChat">
               <div v-for="(element, index) in contacts[chatId - 1].chatMessages" :key="'message-' + index" v-bind:class="{'flex-row-reverse': contacts[chatId - 1].chatMessages[index].userId == 0}" class="container-flex flex-row center-items">
                 <!-- Contact messages -->
-                <div class="contact-messages chat-contact-color">
+                <div id="contact-messages" class="contact-messages chat-contact-color">
+                  <div id="chevron-contact" @click="dropdownMenuToggle(index)" class="dropdown-btn" v-if="contacts[chatId - 1].chatMessages[index].userId !== 0"><i class="fas fa-chevron-down icon-colour"></i></div>
                   <p class="break-text" v-if="contacts[chatId - 1].chatMessages[index].userId !== 0" >{{contacts[chatId - 1].chatMessages[index].text}}</p>
                   <span v-if="contacts[chatId - 1].chatMessages[index].userId !== 0">{{contacts[chatId - 1].chatMessages[index].time}}</span>
                   <span v-if="contacts[chatId - 1].chatMessages[index].userId !== 0">{{currentDate}}</span>
+
+                  <!-- Message dropdown menu -->
+                  <div v-if="contacts[chatId - 1].chatMessages[index].userId !== 0 && contacts[chatId - 1].chatMessages[index].dropdownMenu == true" class="dropdown-message">
+                    <p @click="deleteMessage(index)"><i class="fas fa-trash"></i>Cancella messaggio</p>
+                    <p><i class="fas fa-share"></i>Inoltra</p>
+                  </div>
                 </div>
+
                 <!-- User messages -->
-                <div class="user-messages chat-user-color">
+                <div id="user-messages" class="user-messages chat-user-color">
+                  <div id="chevron-user" @click="dropdownMenuToggle(index)" v-if="contacts[chatId - 1].chatMessages[index].userId == 0"><i class="fas fa-chevron-down dropdown-btn icon-colour"></i></div>
                   <p class="break-text" v-if="contacts[chatId - 1].chatMessages[index].userId == 0">{{contacts[chatId - 1].chatMessages[index].text}}</p>
                   <i v-if="contacts[chatId - 1].chatMessages[index].userId == 0" class="fas fa-check-double"></i>
                   <span v-if="contacts[chatId - 1].chatMessages[index].userId == 0">{{contacts[chatId - 1].chatMessages[index].time}}</span>
                   <span v-if="contacts[chatId - 1].chatMessages[index].userId == 0">{{currentDate}}</span>
+
+                  <!-- Message dropdown menu -->
+                  <div v-if="contacts[chatId - 1].chatMessages[index].userId == 0 && contacts[chatId - 1].chatMessages[index].dropdownMenu == true" class="dropdown-message">
+                    <p @click="deleteMessage(index)"><i class="fas fa-trash"></i>Cancella messaggio</p>
+                    <p><i class="fas fa-share"></i>Inoltra</p>
+                  </div>
                 </div>
               </div>
             </template>
