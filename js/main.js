@@ -1,7 +1,13 @@
 /**
 @file BoolzApp: una web app di messaggistica clone di WhatsApp.
-Milestone 1 = Creazione layout Html & CSS. Basi per lo sviluppo con Vue.
-Features implementate:
+Milestone 1
+- Creazione layout Html & CSS. Basi per lo sviluppo con Vue.
+Milestone 2 =
+- Possibilita' di selezionare un contatto e mostrare la chat relativa a quel contatto nel box dei messagi ( nome, last seen e storico messaggi ).
+- Il contatto selezionato nella sidebar cambia il suo background color.
+- I messaggi, oltre al testo e alla data, hanno un determinato stato, ricevuto o inviato, e in base a questo deve mostrarsi come in figura.
+
+Altre Features implementate:
 - Selezionare una chat tra quelle disponibili.
 - Filter sulla ricerca delle chat presenti.
 - Possibilità di inviare un messaggio in ogni chat e ricevere una risposta random in automatico.
@@ -14,6 +20,10 @@ Features implementate:
 */
 // Init new Object Date
 let date = new Date();
+let day = String(date.getDate());
+let month = String(date.getMonth() + 1);
+let year = date.getFullYear();
+let today = day + '/' + month + '/' + year;
 
 // Init Vue Object
 const boolzApp = new Vue({
@@ -21,10 +31,11 @@ const boolzApp = new Vue({
   data: {
     textInput:"", // Input for sending a message
     search:"", // Chat search bar input
+    currentDate: today,
     notifications: { // Notification status On/Off
       icon:"fa-bell-slash",
       message: "Attiva notifiche desktop",
-    } ,
+    },
     activeChat: null, // Current active chat
     mainUser: { // Main user infos
         name:"Nome Utente",
@@ -167,7 +178,7 @@ const boolzApp = new Vue({
           "A presto :)"
         ],
       }
-    ]
+    ],
   },
   methods: {
     activate(element) { // Activate selected chat

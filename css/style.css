@@ -361,13 +361,14 @@ padding: 10px;
 .user-messages > span, .contact-messages > span {
   position: relative;
   float: right;
-  font-size: 0.7rem;
-  margin: 0 5px;
+  font-size: 0.6rem;
+  margin: 0 5px 0 8px;
   font-weight: 600;
+  color: #6c7689;
 }
 
 .contact-messages > span {
-  margin: 0 8px 5px 0;
+  margin: 0 8px 5px 8px;
 }
 
 /* Input text bar */

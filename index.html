@@ -110,12 +110,14 @@
                 <div class="contact-messages chat-contact-color">
                   <p class="break-text" v-if="contacts[chatId - 1].chatMessages[index].userId !== 0" >{{contacts[chatId - 1].chatMessages[index].text}}</p>
                   <span v-if="contacts[chatId - 1].chatMessages[index].userId !== 0">{{contacts[chatId - 1].chatMessages[index].time}}</span>
+                  <span v-if="contacts[chatId - 1].chatMessages[index].userId !== 0">{{currentDate}}</span>
                 </div>
                 <!-- User messages -->
                 <div class="user-messages chat-user-color">
                   <p class="break-text" v-if="contacts[chatId - 1].chatMessages[index].userId == 0">{{contacts[chatId - 1].chatMessages[index].text}}</p>
                   <i v-if="contacts[chatId - 1].chatMessages[index].userId == 0" class="fas fa-check-double"></i>
                   <span v-if="contacts[chatId - 1].chatMessages[index].userId == 0">{{contacts[chatId - 1].chatMessages[index].time}}</span>
+                  <span v-if="contacts[chatId - 1].chatMessages[index].userId == 0">{{currentDate}}</span>
                 </div>
               </div>
             </template>
