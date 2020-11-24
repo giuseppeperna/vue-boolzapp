@@ -4,7 +4,7 @@ Milestone 1
 - Creazione layout Html & CSS. Basi per lo sviluppo con Vue.
 
 Milestone 2
-- Possibilita' di selezionare un contatto e mostrare la chat relativa a quel contatto nel box dei messagi ( nome, last seen e storico messaggi ).
+- Possibilita' di selezionare un contatto e mostrare la chat relativa a quel contatto nel box dei messaggi ( nome, last seen e storico messaggi ).
 - Il contatto selezionato nella sidebar cambia il suo background color.
 - I messaggi, oltre al testo e alla data, hanno un determinato stato, ricevuto o inviato, e in base a questo deve mostrarsi come in figura.
 
@@ -274,6 +274,7 @@ const boolzApp = new Vue({
       }else {
         this.filterContacts[this.activeChat].chatMessages.splice(index, 1);
       }
+      this.currentDate = today;
     },
     ToggleEmojiPanel() { // Toggle visibility - emoji panel
       if (this.isActiveEmoji) {
