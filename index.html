@@ -85,7 +85,7 @@
               <div class="contact-status-info">
                 <h4 v-if="this.chatId = activeChat" class="black-text">{{contacts[activeChat].name}}</h4>
                 <h4 v-if="!activeChat" class="black-text">BoolzApp</h4>
-                <p v-if="this.chatId = activeChat" class="grey-text font-w-600">{{contacts[activeChat].lastAccess}}</p>
+                <p v-if="this.chatId = activeChat" class="grey-text font-w-600">Ultimo accesso oggi alle {{contacts[activeChat].lastAccess}}</p>
               </div>
             </div>
             <!-- Contact options -->

@@ -43,7 +43,7 @@ const contacts = [ // Contacts infos
   {
     name:"Michele",
     avatar: "img/avatar_1.jpg",
-    lastAccess:"Ultimo accesso oggi alle " + date.toLocaleTimeString([],{hour: '2-digit', minute: '2-digit'}),
+    lastAccess:date.toLocaleTimeString([],{hour: '2-digit', minute: '2-digit'}),
     chatId:"0",
     isActive: false,
     chatMessages: [
@@ -82,7 +82,7 @@ const contacts = [ // Contacts infos
   {
     name:"Fabio",
     avatar: "img/avatar_2.jpg",
-    lastAccess:"Ultimo accesso oggi alle " + date.toLocaleTimeString([],{timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit'}),
+    lastAccess:date.toLocaleTimeString([],{timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit'}),
     chatId:"1",
     isActive: false,
     chatMessages: [
@@ -115,7 +115,7 @@ const contacts = [ // Contacts infos
   {
     name:"Samuele",
     avatar: "img/avatar_3.jpg",
-    lastAccess:"Ultimo accesso oggi alle " + date.toLocaleTimeString([],{timeZone: 'Europe/Athens', hour: '2-digit', minute: '2-digit'}),
+    lastAccess:date.toLocaleTimeString([],{timeZone: 'Europe/Athens', hour: '2-digit', minute: '2-digit'}),
     chatId:"2",
     isActive: false,
     chatMessages: [
@@ -154,7 +154,7 @@ const contacts = [ // Contacts infos
   {
     name:"Luisa",
     avatar: "img/avatar_6.jpg",
-    lastAccess:"Ultimo accesso oggi alle " + date.toLocaleTimeString([],{timeZone: 'Asia/Shanghai', hour: '2-digit', minute: '2-digit'}),
+    lastAccess:date.toLocaleTimeString([],{timeZone: 'Asia/Shanghai', hour: '2-digit', minute: '2-digit'}),
     chatId:"3",
     isActive: false,
     chatMessages: [
