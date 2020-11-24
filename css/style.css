@@ -412,6 +412,11 @@ margin-top: 5px;
 }
 
 /* Input text bar */
+
+.input-message {
+  position: relative;
+}
+
 .input-message > input {
   width: 80%;
   height: 50px;
@@ -420,6 +425,7 @@ margin-top: 5px;
   padding: 0 15px;
   color: grey;
   font-size: 0.9rem;
+
 }
 
 .input-message i {
@@ -436,4 +442,20 @@ margin-top: 5px;
   top:50%;
   left:50%;
   transform: translate(-50%, -50%);
+}
+
+.emoji-container {
+  position: absolute;
+  bottom:85px;
+  left:15px;
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.emoji-container li {
+  display: inline;
+  font-size: 1.2rem;
+  cursor: pointer;
 }

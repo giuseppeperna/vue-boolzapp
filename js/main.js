@@ -195,6 +195,10 @@ const mainUser = { // Main user infos
     userId:0,
 }
 
+const emoji = ["😀", "😄", "😁", "🤣", "😊", "😇", "🙃", "😉", "😍", "😛", "😡", "😨", "😰", "😥", "😓", "🤗", "🤔", "🤭",
+ "👍", "💪", "👋", "🤚", "✋", "🖖", "👌", "🙏", "☝️", "👻", "👽", "👾", "🤖", "🎃", "👶", "🧒", "👦", "👧", "🧑", "👱", "👨",
+ "🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐨", "🐯", "🦁"];
+
 // Init Vue Object
 const boolzApp = new Vue({
   el:'#boolzApp',
@@ -209,6 +213,8 @@ const boolzApp = new Vue({
     activeChat: null, // Current active chat
     mainUser,
     contacts,
+    emoji,
+    isActiveEmoji:false,
   },
   methods: {
     activate(element) { // Activate selected chat
@@ -263,9 +269,15 @@ const boolzApp = new Vue({
         this.currentDate = null;
       }else {
         this.filterContacts[this.activeChat].chatMessages.splice(index, 1);
-
+      }
+    },ToggleEmojiPanel() {
+      if (this.isActiveEmoji) {
+        this.isActiveEmoji = false;
+      } else {
+        this.isActiveEmoji = true;
       }
     }
+
   },
   computed: { // Search chat filter
     filterContacts() {

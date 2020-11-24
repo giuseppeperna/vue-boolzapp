@@ -141,7 +141,16 @@
           <!-- Input text field -->
           <div class="input-message input-bar-colour container-flex flex-row justify-space-evenly center-items">
             <!-- Emoji -->
-            <a v-if="activeChat" href="#"><i class="far fa-smile icon-colour"></i></a>
+
+            <div class="smile-icons">
+              <a v-if="activeChat" @click="ToggleEmojiPanel" href="#"><i class="far fa-smile icon-colour"></i></a>
+              <div v-if="isActiveEmoji == true" class="emoji-container input-bar-colour">
+                <ul>
+                  <li v-for="item in emoji">{{item}}</li>
+                </ul>
+              </div>
+            </div>
+
             <!-- Text input field -->
             <input v-if="activeChat" v-model="textInput" @keypress.enter="sendMessage()" type="text" name="" value="" placeholder="Scrivi un messsaggio">
             <!-- Send message button -->
