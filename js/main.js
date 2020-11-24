@@ -28,6 +28,7 @@ Altre Features implementate:
 - Toggle sulla visibilità dei dropdown menus per ogni messaggio della chat.
 - Possibilità di cancellare un messaggio dalla chat.
 - Pannello emoji e possibilità di utilizzare queste ultime all'interno dei messaggi.
+- Inviare un allegato immagine nella chat (tra le immagini presenti nella cartella img).
 
 @author Giuseppe Perna <giuseppeperna.cg@gmail.com>
 */
@@ -42,7 +43,7 @@ const contacts = [ // Contacts infos
   {
     name:"Michele",
     avatar: "img/avatar_1.jpg",
-    lastAccess: date.toLocaleTimeString([],{hour: '2-digit', minute: '2-digit'}),
+    lastAccess:"Ultimo accesso oggi alle " + date.toLocaleTimeString([],{hour: '2-digit', minute: '2-digit'}),
     chatId:"0",
     isActive: false,
     chatMessages: [
@@ -81,7 +82,7 @@ const contacts = [ // Contacts infos
   {
     name:"Fabio",
     avatar: "img/avatar_2.jpg",
-    lastAccess:date.toLocaleTimeString([],{timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit'}),
+    lastAccess:"Ultimo accesso oggi alle " + date.toLocaleTimeString([],{timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit'}),
     chatId:"1",
     isActive: false,
     chatMessages: [
@@ -114,7 +115,7 @@ const contacts = [ // Contacts infos
   {
     name:"Samuele",
     avatar: "img/avatar_3.jpg",
-    lastAccess:date.toLocaleTimeString([],{timeZone: 'Europe/Athens', hour: '2-digit', minute: '2-digit'}),
+    lastAccess:"Ultimo accesso oggi alle " + date.toLocaleTimeString([],{timeZone: 'Europe/Athens', hour: '2-digit', minute: '2-digit'}),
     chatId:"2",
     isActive: false,
     chatMessages: [
@@ -153,7 +154,7 @@ const contacts = [ // Contacts infos
   {
     name:"Luisa",
     avatar: "img/avatar_6.jpg",
-    lastAccess:date.toLocaleTimeString([],{timeZone: 'Asia/Shanghai', hour: '2-digit', minute: '2-digit'}),
+    lastAccess:"Ultimo accesso oggi alle " + date.toLocaleTimeString([],{timeZone: 'Asia/Shanghai', hour: '2-digit', minute: '2-digit'}),
     chatId:"3",
     isActive: false,
     chatMessages: [
@@ -215,6 +216,8 @@ const boolzApp = new Vue({
     contacts,
     emoji,
     isActiveEmoji:false,
+    isActiveAttachment:false,
+    uploadedImage:[],
   },
   methods: {
     activate(element) { // Activate selected chat
@@ -243,9 +246,9 @@ const boolzApp = new Vue({
             time: date.toLocaleTimeString([],{hour: '2-digit', minute: '2-digit'}),
             dropdownMenu: false,
         })
-        setTimeout(() => {this.automaticAnswer()},3000); // Send a random answer after 3 seconds;
+        setTimeout(() => {this.automaticAnswer()},1000); // Send a random answer after 3 seconds;
         this.textInput = ""; // Reset message input value
-        this.currentDate = today
+        this.currentDate = today;
         this.isActiveEmoji = false;
       }
     },
@@ -281,7 +284,26 @@ const boolzApp = new Vue({
     },
     sendEmoji(index) { // Put emoji in input text.
       this.textInput += this.emoji[index];
-    }
+    },
+    loadImage(event) { // load an image in chat (if present in img folder)
+      this.uploadedImage = event.target.files[0];
+      console.log(this.uploadedImage)
+      this.filterContacts[this.activeChat].chatMessages.push( {
+          src: event.target.files[0].name,
+          userId: 0,
+          time: date.toLocaleTimeString([],{hour: '2-digit', minute: '2-digit'}),
+          dropdownMenu: false,
+      })
+      this.isActiveAttachment = false;
+      setTimeout(() => {this.automaticAnswer()},1000);
+    },
+    ToggleAttachmentPanel() { // Toggle visibility - Attachment panel
+      if (this.isActiveAttachment) {
+        this.isActiveAttachment = false;
+      } else {
+        this.isActiveAttachment = true;
+      }
+    },
 
   },
   computed: { // Search chat filter

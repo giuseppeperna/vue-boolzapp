@@ -85,13 +85,13 @@
               <div class="contact-status-info">
                 <h4 v-if="this.chatId = activeChat" class="black-text">{{contacts[activeChat].name}}</h4>
                 <h4 v-if="!activeChat" class="black-text">BoolzApp</h4>
-                <p v-if="this.chatId = activeChat" class="grey-text font-w-600">Ultimo accesso oggi alle {{contacts[activeChat].lastAccess}}</p>
+                <p v-if="this.chatId = activeChat" class="grey-text font-w-600">{{contacts[activeChat].lastAccess}}</p>
               </div>
             </div>
             <!-- Contact options -->
             <div class="contact-options">
               <a v-if="activeChat" href="#"><i class="fas fa-search icon-colour-light"></i></a>
-              <a v-if="activeChat" href="#"><i class="fas fa-paperclip icon-colour-light"></i></a>
+              <a v-if="activeChat" @click="ToggleAttachmentPanel()" href="#"><i class="fas fa-paperclip icon-colour-light"></i></a>
               <a href="#"><i class="fas fa-ellipsis-v icon-colour-light"></i></a>
             </div>
           </div>
@@ -105,6 +105,15 @@
             </div>
             <!-- Chat messages -->
             <template v-if="this.chatId = activeChat">
+              <!-- Attachment panel -->
+              <div v-if="isActiveAttachment" class="attachment grey-bars">
+                <label for="attachment">
+                  <img src="img/attachment.jpg" alt="">
+                  <p class="font-w-600">Upload</p>
+                </label>
+
+                <input id="attachment" v-if="activeChat" @change="loadImage($event)" accept="image/*" type="file" name="image">
+              </div>
               <div v-for="(element, index) in contacts[activeChat].chatMessages" :key="element.id" v-bind:class="{'flex-row-reverse': contacts[activeChat].chatMessages[index].userId == 0}" class="container-flex flex-row center-items">
                 <!-- Contact messages -->
                 <div id="contact-messages" class="contact-messages chat-contact-color">
@@ -124,6 +133,7 @@
                 <div id="user-messages" class="user-messages chat-user-color">
                   <div id="chevron-user" @click="dropdownMenuToggle(index)" v-if="contacts[activeChat].chatMessages[index].userId == 0"><i class="fas fa-chevron-down dropdown-btn icon-colour"></i></div>
                   <p class="break-text" v-if="contacts[activeChat].chatMessages[index].userId == 0">{{contacts[activeChat].chatMessages[index].text}}</p>
+                  <img v-if="contacts[activeChat].chatMessages[index].userId == 0" v-bind:src="'img/' + contacts[activeChat].chatMessages[index].src" alt="">
                   <i v-if="contacts[activeChat].chatMessages[index].userId == 0" class="fas fa-check-double"></i>
                   <span v-if="contacts[activeChat].chatMessages[index].userId == 0">{{contacts[activeChat].chatMessages[index].time}}</span>
                   <span v-if="contacts[activeChat].chatMessages[index].userId == 0">{{currentDate}}</span>
@@ -141,7 +151,6 @@
           <!-- Input text field -->
           <div class="input-message input-bar-colour container-flex flex-row justify-space-evenly center-items">
             <!-- Emoji -->
-
             <div class="smile-icons">
               <a v-if="activeChat" @click="ToggleEmojiPanel" href="#"><i class="far fa-smile icon-colour"></i></a>
               <div v-if="isActiveEmoji == true" class="emoji-container input-bar-colour">
