@@ -64,9 +64,9 @@
                 <!-- Avatar & name -->
                 <a href="#"><img v-bind:src="element.avatar" alt=""></a><span class="font-w-600 black-text contact-name">{{element.name}}</span>
                 <!-- Last message -->
-                <span class="last-message text-ellipsis">{{element.chatMessages.slice(-1)[0].text}}</span>
+                <span v-if="element.chatMessages.length > 0" class="last-message text-ellipsis">{{element.chatMessages.slice(-1)[0].text}}</span>
                 <!-- Last message time -->
-                <span class="last-message-time font-w-600">{{element.chatMessages.slice(-1)[0].time}}</span>
+                <span v-if="element.chatMessages.length > 0" class="last-message-time font-w-600">{{element.chatMessages.slice(-1)[0].time}}</span>
               </li>
             </ul>
           </div>
@@ -108,7 +108,7 @@
               <div v-for="(element, index) in contacts[activeChat].chatMessages" :key="element.id" v-bind:class="{'flex-row-reverse': contacts[activeChat].chatMessages[index].userId == 0}" class="container-flex flex-row center-items">
                 <!-- Contact messages -->
                 <div id="contact-messages" class="contact-messages chat-contact-color">
-                  <div id="chevron-contact" @click="dropdownMenuToggle(index)" class="dropdown-btn" v-if="contacts[activeChat].chatMessages[index].userId !== 0 && this.currentDate !== null "><i class="fas fa-chevron-down icon-colour"></i></div>
+                  <div id="chevron-contact" @click="dropdownMenuToggle(index)" class="dropdown-btn" v-if="contacts[activeChat].chatMessages[index].userId !== 0"><i class="fas fa-chevron-down icon-colour"></i></div>
                   <p class="break-text" v-if="contacts[activeChat].chatMessages[index].userId !== 0" >{{contacts[activeChat].chatMessages[index].text}}</p>
                   <span v-if="contacts[activeChat].chatMessages[index].userId !== 0">{{contacts[activeChat].chatMessages[index].time}}</span>
                   <span v-if="contacts[activeChat].chatMessages[index].userId !== 0">{{currentDate}}</span>
@@ -122,7 +122,7 @@
 
                 <!-- User messages -->
                 <div id="user-messages" class="user-messages chat-user-color">
-                  <div id="chevron-user" @click="dropdownMenuToggle(index)" v-if="contacts[activeChat].chatMessages[index].userId == 0 && this.currentDate !== null"><i class="fas fa-chevron-down dropdown-btn icon-colour"></i></div>
+                  <div id="chevron-user" @click="dropdownMenuToggle(index)" v-if="contacts[activeChat].chatMessages[index].userId == 0"><i class="fas fa-chevron-down dropdown-btn icon-colour"></i></div>
                   <p class="break-text" v-if="contacts[activeChat].chatMessages[index].userId == 0">{{contacts[activeChat].chatMessages[index].text}}</p>
                   <i v-if="contacts[activeChat].chatMessages[index].userId == 0" class="fas fa-check-double"></i>
                   <span v-if="contacts[activeChat].chatMessages[index].userId == 0">{{contacts[activeChat].chatMessages[index].time}}</span>

@@ -259,7 +259,7 @@ const boolzApp = new Vue({
     },
     deleteMessage(index) { // Delete a message in the chat
       if (this.filterContacts[this.activeChat].chatMessages.length == 1) {
-        this.filterContacts[this.activeChat].chatMessages = [{}];
+        this.filterContacts[this.activeChat].chatMessages.length = 0
         this.currentDate = null;
       }else {
         this.filterContacts[this.activeChat].chatMessages.splice(index, 1);
