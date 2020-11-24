@@ -146,7 +146,7 @@
               <a v-if="activeChat" @click="ToggleEmojiPanel" href="#"><i class="far fa-smile icon-colour"></i></a>
               <div v-if="isActiveEmoji == true" class="emoji-container input-bar-colour">
                 <ul>
-                  <li v-for="item in emoji">{{item}}</li>
+                  <li v-for="(element, index) in emoji" @click="sendEmoji(index)">{{element}}</li>
                 </ul>
               </div>
             </div>

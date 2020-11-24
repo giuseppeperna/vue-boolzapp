@@ -27,6 +27,7 @@ Altre Features implementate:
 - Nella lista delle chat disponibili viene mostrata l'anteprima dell'ultimo messaggio e l'orario di invio/ricezione.
 - Toggle sulla visibilità dei dropdown menus per ogni messaggio della chat.
 - Possibilità di cancellare un messaggio dalla chat.
+- Pannello emoji e possibilità di utilizzare queste ultime all'interno dei messaggi.
 
 @author Giuseppe Perna <giuseppeperna.cg@gmail.com>
 */
@@ -187,8 +188,7 @@ const contacts = [ // Contacts infos
       "Hai già il mio numero.",
       "A presto :)"
     ],
-  }
-]
+  }]
 const mainUser = { // Main user infos
     name:"Nome Utente",
     avatar:"img/avatar_io.jpg",
@@ -246,6 +246,7 @@ const boolzApp = new Vue({
         setTimeout(() => {this.automaticAnswer()},3000); // Send a random answer after 3 seconds;
         this.textInput = ""; // Reset message input value
         this.currentDate = today
+        this.isActiveEmoji = false;
       }
     },
     automaticAnswer() { // Generate a random answer
@@ -270,12 +271,16 @@ const boolzApp = new Vue({
       }else {
         this.filterContacts[this.activeChat].chatMessages.splice(index, 1);
       }
-    },ToggleEmojiPanel() {
+    },
+    ToggleEmojiPanel() { // Toggle visibility - emoji panel
       if (this.isActiveEmoji) {
         this.isActiveEmoji = false;
       } else {
         this.isActiveEmoji = true;
       }
+    },
+    sendEmoji(index) { // Put emoji in input text.
+      this.textInput += this.emoji[index];
     }
 
   },
