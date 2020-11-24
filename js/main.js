@@ -246,7 +246,7 @@ const boolzApp = new Vue({
             time: date.toLocaleTimeString([],{hour: '2-digit', minute: '2-digit'}),
             dropdownMenu: false,
         })
-        setTimeout(() => {this.automaticAnswer()},1000); // Send a random answer after 3 seconds;
+        setTimeout(() => {this.automaticAnswer()},1500); // Send a random answer after 3 seconds;
         this.textInput = ""; // Reset message input value
         this.currentDate = today;
         this.isActiveEmoji = false;
@@ -296,7 +296,7 @@ const boolzApp = new Vue({
           dropdownMenu: false,
       })
       this.isActiveAttachment = false;
-      setTimeout(() => {this.automaticAnswer()},1000);
+      setTimeout(() => {this.automaticAnswer()},1500);
     },
     ToggleAttachmentPanel() { // Toggle visibility - Attachment panel
       if (this.isActiveAttachment) {
