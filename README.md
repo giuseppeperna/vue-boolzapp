@@ -1,4 +1,5 @@
-<h1> BoolzApp </h1>
+<h1 align="center"> BoolzApp </h1>
+<p align="center"> Powered by Boolean Careers </p>
 
 <img src="screens/BoolzApp_1.png">
 
