@@ -130,6 +130,7 @@ body {
   transform: translate(-50%, -50%);
   height: 90vh;
   width: 80%;
+  min-height: 370px;
   min-width: 1000px;
   z-index: 1;
 }
@@ -385,7 +386,7 @@ margin-top: 5px;
 }
 
 .attachment > label > img {
-  width: 50px;
+  width: 45px;
   border-radius: 10px;
   position:absolute;
   left:50%;
@@ -424,11 +425,8 @@ margin-top: 5px;
   visibility: hidden;
 }
 
-#contact-messages:hover > #chevron-contact {
-  visibility: visible;
-}
-
-#user-messages:hover > #chevron-user {
+#contact-messages:hover > #chevron-contact,
+#user-messages:hover > #chevron-user  {
   visibility: visible;
 }
 
@@ -462,7 +460,6 @@ margin-top: 5px;
   padding: 0 15px;
   color: grey;
   font-size: 0.9rem;
-
 }
 
 .input-message i {
@@ -490,8 +487,6 @@ margin-top: 5px;
   border-radius: 10px;
   padding: 5px;
 }
-
-
 
 .emoji-container li {
   display: inline;

@@ -79,8 +79,8 @@
           <div class="top-bar grey-bars container-flex flex-row center-items justify-space-between">
             <!-- Avatar or Logo -->
             <div class="contact-avatar container-flex flex-row center-items">
-              <a href=""><img v-if="this.chatId = activeChat" v-bind:src="contacts[activeChat].avatar" alt="avatar"></a>
-              <a href=""><img v-if="!activeChat" src="img/boolean-logo.png" alt="logo"></a>
+              <a href="#"><img v-if="this.chatId = activeChat" v-bind:src="contacts[activeChat].avatar" alt="avatar"></a>
+              <a href="#"><img v-if="!activeChat" src="img/boolean-logo.png" alt="logo"></a>
               <!-- Contact status infos -->
               <div class="contact-status-info">
                 <h4 v-if="this.chatId = activeChat" class="black-text">{{contacts[activeChat].name}}</h4>
@@ -91,7 +91,7 @@
             <!-- Contact options -->
             <div class="contact-options">
               <a v-if="activeChat" href="#"><i class="fas fa-search icon-colour-light"></i></a>
-              <a v-if="activeChat" @click="ToggleAttachmentPanel()" href="#"><i class="fas fa-paperclip icon-colour-light"></i></a>
+              <a v-if="activeChat" @click="toggleAttachmentPanel()" href="#"><i class="fas fa-paperclip icon-colour-light"></i></a>
               <a href="#"><i class="fas fa-ellipsis-v icon-colour-light"></i></a>
             </div>
           </div>
@@ -100,7 +100,7 @@
           <div class="messages-field">
             <!-- Welcome window -->
             <div v-if="!activeChat" class="welcome-window container-flex flex-column center-items justify-center">
-              <img src="img/boolean-logo.png" alt="">
+              <img src="img/boolean-logo.png" alt="logo">
               <h4 class="black-text">Powered by Boolean Careers</h4>
             </div>
             <!-- Chat messages -->
@@ -108,12 +108,12 @@
               <!-- Attachment panel -->
               <div v-if="isActiveAttachment" class="attachment grey-bars">
                 <label for="attachment">
-                  <img src="img/attachment.jpg" alt="">
+                  <img src="img/upload-image.png" alt="upload">
                   <p class="font-w-600">Upload</p>
                 </label>
-
                 <input id="attachment" v-if="activeChat" @change="loadImage($event)" accept="image/*" type="file" name="image">
               </div>
+
               <div v-for="(element, index) in contacts[activeChat].chatMessages" :key="element.id" v-bind:class="{'flex-row-reverse': contacts[activeChat].chatMessages[index].userId == 0}" class="container-flex flex-row center-items">
                 <!-- Contact messages -->
                 <div id="contact-messages" class="contact-messages chat-contact-color">
@@ -152,7 +152,7 @@
           <div class="input-message input-bar-colour container-flex flex-row justify-space-evenly center-items">
             <!-- Emoji -->
             <div class="smile-icons">
-              <a v-if="activeChat" @click="ToggleEmojiPanel" href="#"><i class="far fa-smile icon-colour"></i></a>
+              <a v-if="activeChat" @click="toggleEmojiPanel" href="#"><i class="far fa-smile icon-colour"></i></a>
               <div v-if="isActiveEmoji == true" class="emoji-container input-bar-colour">
                 <ul>
                   <li v-for="(element, index) in emoji" @click="sendEmoji(index)">{{element}}</li>

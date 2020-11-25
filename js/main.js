@@ -32,6 +32,7 @@ Altre Features implementate:
 
 @author Giuseppe Perna <giuseppeperna.cg@gmail.com>
 */
+
 // Init new Object Date
 let date = new Date();
 let day = String(date.getDate());
@@ -276,7 +277,7 @@ const boolzApp = new Vue({
       }
       this.currentDate = today;
     },
-    ToggleEmojiPanel() { // Toggle visibility - emoji panel
+    toggleEmojiPanel() { // Toggle visibility - emoji panel
       if (this.isActiveEmoji) {
         this.isActiveEmoji = false;
       } else {
@@ -298,14 +299,13 @@ const boolzApp = new Vue({
       this.isActiveAttachment = false;
       setTimeout(() => {this.automaticAnswer()},1500);
     },
-    ToggleAttachmentPanel() { // Toggle visibility - Attachment panel
+    toggleAttachmentPanel() { // Toggle visibility - Attachment panel
       if (this.isActiveAttachment) {
         this.isActiveAttachment = false;
       } else {
         this.isActiveAttachment = true;
       }
     },
-
   },
   computed: { // Search chat filter
     filterContacts() {
