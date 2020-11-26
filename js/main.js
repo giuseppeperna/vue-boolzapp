@@ -208,10 +208,7 @@ const boolzApp = new Vue({
     textInput:"", // Input for sending a message
     search:"", // Chat search bar input
     currentDate: today,
-    notifications: { // Notification status On/Off
-      icon:"fa-bell-slash",
-      message: "Attiva notifiche desktop",
-    },
+    notificationOn: false,
     activeChat: null, // Current active chat
     mainUser,
     contacts,
@@ -231,13 +228,7 @@ const boolzApp = new Vue({
       }
     },
     notificationsToggle() { // Toggle notifications On/Off
-      if (this.notifications.icon === "fa-bell-slash") {
-        this.notifications.icon = "fa-bell";
-        this.notifications.message = "Disattiva notifiche desktop";
-      } else {
-        this.notifications.icon = "fa-bell-slash";
-        this.notifications.message = "Attiva notifiche desktop";
-      }
+      this.notificationOn = !this.notificationOn
     },
     sendMessage() { // Send new message in chat
       while (this.textInput !== "") {
@@ -254,7 +245,7 @@ const boolzApp = new Vue({
       }
     },
     automaticAnswer() { // Generate a random answer
-      this.contacts[this.activeChat].chatMessages.push( {
+      this.filterContacts[this.activeChat].chatMessages.push( {
           text: this.filterContacts[this.activeChat].randomAnswers[Math.floor(Math.random() * this.filterContacts[this.activeChat].randomAnswers.length)],
           time: date.toLocaleTimeString([],{hour: '2-digit', minute: '2-digit'}),
           dropdownMenu: false,

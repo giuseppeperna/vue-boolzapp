@@ -41,11 +41,13 @@
           <!-- Notifications status -->
           <div class="notification-status container-flex flex-row center-items">
             <div @click="notificationsToggle" class="notification-bell">
-              <i v-bind:class="notifications.icon" class="fas"></i>
+              <i v-if="!notificationOn" class="fa fa-bell-slash" ></i>
+              <i V-else class="fa fa-bell"></i>
             </div>
             <div>
               <p class="font-w-700 black-text">Ricevi notifiche di nuovi messaggi</p>
-              <a href="#" @click="notificationsToggle">{{notifications.message}}</a>
+              <a href="#" v-if="!notificationOn" @click="notificationsToggle">Attiva Notifiche Desktop</a>
+              <a href="#" v-else @click="notificationsToggle">Disattiva Notifiche Desktop</a>
             </div>
           </div>
 
